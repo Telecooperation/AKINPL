@@ -1,0 +1,22 @@
+#
+# $Id: 977-mgen 3568 2017-01-16 10:22:55Z daniel $
+#
+# mgen is packet generator
+#
+
+PKG="mgen"
+PKG_VERSION="5.02b"
+PKG_FILE="src-mgen-5.02b.tar.gz"
+URL="https://downloads.pf.itd.nrl.navy.mil/mgen/src-mgen-5.02b.tar.gz"
+MD5="acf288cc6ebe2cfde07868b66fd63605"
+
+( cat << "xEOFx"
+cd makefiles
+make -f Makefile.linux
+cd ..
+mv makefiles/mgen /usr/bin
+mkdir /usr/share/doc/mgen-5.02b
+mv doc/* /usr/share/doc/mgen-5.02b
+
+xEOFx
+) > tmp

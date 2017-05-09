@@ -1,0 +1,36 @@
+#
+# $Id: 897-linux-4.7.2 9097 2017-02-25 16:26:10Z daniel $
+#
+PKG="linux-4.7.2"
+PKG_VERSION="4.7.2"
+PKG_FILE="linux-4.7.2.tar.xz"
+URL="https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.2.tar.xz"
+MD5="ae493473d074185205a54bc8ad49c3b4"
+
+( cat << "xEOFx"
+
+make mrproper
+
+cp ../linux-4.7.2-config .config
+
+make
+
+make modules_install
+
+make firmware_install
+
+make install headers_install
+
+cp -v arch/x86/boot/bzImage /boot/vmlinuz-4.7.2
+cp -v System.map /boot/System.map-4.7.2
+cp -v .config /boot/config-4.7.2
+cp -v vmlinux /boot/vmlinux-4.7.2
+
+cd /sources
+
+mv linux-4.7.2 linux-4.7.2-src
+mkdir linux-4.7.2
+cd linux-4.7.2
+
+xEOFx
+) > tmp

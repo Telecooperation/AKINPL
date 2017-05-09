@@ -1,0 +1,33 @@
+#
+# $Id: 958-w3m 3859 2017-01-23 08:22:22Z daniel $
+#
+# w3m allows for viewing web pages
+#
+PKG="w3m"
+PKG_VERSION="0.5.3"
+PKG_FILE="w3m-0.5.3.tar.gz"
+URL="http://downloads.sourceforge.net/w3m/w3m-0.5.3.tar.gz"
+MD5="1b845a983a50b8dec0169ac48479eacc"
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1="http://www.linuxfromscratch.org/patches/blfs/7.10/w3m-0.5.3-bdwgc72-1.patch 0023b3d259ee913f7b421812f7379f58"
+
+( cat << "xEOFx"
+
+patch -Np1 -i ../w3m-0.5.3-bdwgc72-1.patch &&
+sed -i 's/file_handle/file_foo/' istream.{c,h} &&
+sed -i 's#gdk-pixbuf-xlib-2.0#& x11#' configure &&
+
+./configure --prefix=/usr --sysconfdir=/etc &&
+make
+
+make install &&
+install -v -m644 -D doc/keymap.default /etc/w3m/keymap &&
+install -v -m644    doc/menu.default /etc/w3m/menu &&
+install -v -m755 -d /usr/share/doc/w3m-0.5.3 &&
+install -v -m644    doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
+                    /usr/share/doc/w3m-0.5.3
+
+xEOFx
+) > tmp

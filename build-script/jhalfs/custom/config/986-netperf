@@ -1,0 +1,20 @@
+#
+# $Id: 985-netperf 3575 2017-01-16 15:15:19Z daniel $
+#
+# netperf is a throughput measurement tool
+#
+
+PKG="netperf"
+PKG_VERSION="2.7.0"
+PKG_FILE="netperf-2.7.0.tar.bz2"
+URL="ftp://ftp.netperf.org/netperf/netperf-2.7.0.tar.bz2"
+MD5="ad1c5342d61f297c417a93133aeba65a"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-unixdomain --enable-dccp --enable-sctp --enable-cpuutil=procstat --enable-omni
+make
+make install
+
+xEOFx
+) > tmp

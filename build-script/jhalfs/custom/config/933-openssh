@@ -1,0 +1,19 @@
+#
+# $Id: 933-openssh 7597 2017-01-20 12:52:37Z daniel $
+#
+# openssh can be used for establishing a secure connection between two machines
+#
+
+PKG="openssh"
+PKG_VERSION="7.3p1"
+PKG_FILE="openssh-7.3p1.tar.gz"
+URL="http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.3p1.tar.gz"
+MD5="dfadd9f035d38ce5d58a3bf130b86d08"
+
+
+( cat << "xEOFx"
+
+# Treated by finish_build.sh
+
+xEOFx
+) > tmp

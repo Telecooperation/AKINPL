@@ -1,0 +1,22 @@
+#
+# $Id: 930-which 7594 2017-01-20 12:41:38Z daniel $
+#
+# which locates commands
+#
+
+PKG="which"
+PKG_VERSION="2.21"
+PKG_FILE="which-2.21.tar.gz"
+URL="http://ftp.gnu.org/gnu/which/which-2.21.tar.gz"
+MD5="097ff1a324ae02e0a3b0369f07a7544a"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr &&
+make
+
+make install
+
+xEOFx
+) > tmp

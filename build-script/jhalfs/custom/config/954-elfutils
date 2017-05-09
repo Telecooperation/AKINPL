@@ -1,0 +1,21 @@
+#
+# $Id: 954-elfutils 3855 2016-02-20 22:13:22Z pierre $
+#
+PKG="elfutils"
+PKG_VERSION="0.167"
+PKG_FILE="elfutils-0.167.tar.bz2"
+URL="https://fedorahosted.org/releases/e/l/elfutils/0.167/elfutils-0.167.tar.bz2"
+MD5="efc6c2067dfad5646777e93e85222e8f"
+for i in PATCH{1..10}; do
+   unset $i
+done
+
+( cat << "xEOFx"
+./configure --prefix=/usr --program-prefix="eu-" &&
+make
+
+
+make install
+
+xEOFx
+) > tmp

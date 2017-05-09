@@ -1,0 +1,27 @@
+#
+# $Id: 9994-setuid-flags 9103 2017-02-24 16:08:16Z daniel $
+#
+# sets flags in order to allow users the execution of some programs
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+chmod u+s /bin/ping
+chmod u+s /bin/ping6
+
+ln -s /sbin/route /bin/route
+chmod u+s /sbin/route
+chmod u+s /bin/route
+
+ln -s /sbin/ifconfig /bin/ifconfig
+chmod u+s /sbin/ifconfig
+chmod u+s /bin/ifconfig
+
+xEOFx
+) > tmp

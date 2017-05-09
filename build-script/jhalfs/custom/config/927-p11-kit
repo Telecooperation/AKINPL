@@ -1,0 +1,22 @@
+#
+# $Id: 927-p11-kit 7591 2017-01-20 11:58:32Z daniel $
+#
+# p11-kit ships a way for handeling PKCS#11 modules.
+#
+
+PKG="p11-kit"
+PKG_VERSION="0.32.2"
+PKG_FILE="p11-kit-0.23.2.tar.gz"
+URL="http://p11-glue.freedesktop.org/releases/p11-kit-0.23.2.tar.gz"
+MD5="738af2442331fc22f440df9bee9b062a"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --sysconfdir=/etc &&
+make
+
+make install
+
+xEOFx
+) > tmp

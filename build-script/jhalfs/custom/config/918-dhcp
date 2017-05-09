@@ -1,0 +1,24 @@
+#
+# $Id: 918-dhcp 7583 2017-01-20 10:37:15Z daniel $
+#
+# dhcp ships both client and deamon of DHCP
+#
+
+PKG="dhcp"
+PKG_VERSION="4.3.4"
+PKG_FILE="dhcp-4.3.4.tar.gz"
+URL="ftp://ftp.isc.org/isc/dhcp/4.3.4/dhcp-4.3.4.tar.gz"
+MD5="0138319fe2b788cf4bdf34fbeaf9ff54"
+
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1="http://www.linuxfromscratch.org/patches/blfs/7.10/dhcp-4.3.4-client_script-1.patch c02bddb6c6c33c5885e3dd072ee2ee40"
+PATCH2="http://www.linuxfromscratch.org/patches/blfs/7.10/dhcp-4.3.4-missing_ipv6-1.patch da655f02f1cf4d95b4708e84e69edbc8"
+
+( cat << "xEOFx"
+
+# Treated by finish_build.sh
+
+xEOFx
+) > tmp

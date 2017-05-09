@@ -1,0 +1,29 @@
+#
+# $Id: 902-libpcap 7566 2017-01-16 10:28:59Z daniel $
+#
+# libpcap
+#
+
+PKG="libpcap"
+PKG_VERSION="1.7.4"
+PKG_FILE="libpcap-1.7.4.tar.gz"
+URL="http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
+MD5="b2e13142bbaba857ab1c6894aedaf547"
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1="http://www.linuxfromscratch.org/patches/blfs/7.10/libpcap-1.7.4-enable_bluetooth-1.patch 3ee31165d569dbcf29057a9ca581878d"
+
+( cat << "xEOFx"
+
+patch -Np1 -i ../libpcap-1.7.4-enable_bluetooth-1.patch &&
+
+./configure --prefix=/usr &&
+make
+
+sed -i '/INSTALL_DATA.*libpcap.a\|RANLIB.*libpcap.a/ s/^/#/' Makefile
+
+make install
+
+xEOFx
+) > tmp

@@ -1,0 +1,32 @@
+#
+# $Id: 965-mptcp-kernel 10009 2017-02-25 17:20:55Z daniel $
+#
+PKG="mptcp-kernel"
+PKG_VERSION="0.91"
+PKG_FILE="mptcp-kernel.tar.xz"
+URL="https://www.dropbox.com/s/ykt4ks5xlprzadz/mptcp-kernel.tar.xz"
+MD5="7ef1aae15a36031013aace9dab1a1c99"
+
+( cat << "xEOFx"
+
+make mrproper
+
+cp ../linux-mptcp-config .config
+
+make
+
+make modules_install
+
+cp -v arch/x86/boot/bzImage /boot/vmlinuz-mptcp
+cp -v System.map /boot/System.map-4.1.36
+cp -v .config /boot/config-4.1.36
+cp -v vmlinux /boot/vmlinux-mptcp
+
+cd /sources
+
+mv mptcp-kernel mptcp-kernel-src
+mkdir mptcp-kernel
+cd mptcp-kernel
+
+xEOFx
+) > tmp

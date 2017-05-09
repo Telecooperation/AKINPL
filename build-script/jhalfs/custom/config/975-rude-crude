@@ -1,0 +1,24 @@
+#
+# $Id: 974-rude-crude 3564 2017 09:44:05Z daniel $
+#
+# rude & crude is a lighweight traffic generator using UDP datagramms
+#
+
+PKG="rude"
+PKG_VERSION="0.62"
+PKG_FILE="rude-0.62.tar.gz"
+URL="https://downloads.sourceforge.net/project/rude/rude/rude-0.62/rude-0.62.tar.gz"
+MD5="eafee8d69206012d549bc19f4eaf33f4"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-wall −−with-debug-lvl=3
+mkdir /usr/man
+make
+make install
+mv /usr/man/man8/* /usr/share/man/man8
+rm -r /usr/man
+ln -s /usr/share/man /usr/man
+
+xEOFx
+) > tmp

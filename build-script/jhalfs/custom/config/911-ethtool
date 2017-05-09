@@ -1,0 +1,20 @@
+#
+# $Id: 911-ethtool 7575 2017-01-19 19:04:25Z daniel $
+#
+# ethtool allows for configuring ethernet interfaces
+#
+
+PKG="ethtool"
+PKG_VERSION="4.8"
+PKG_FILE="ethtool-4.8.tar.xz"
+URL="https://www.kernel.org/pub/software/network/ethtool/ethtool-4.8.tar.xz"
+MD5="e9e7286178f172c9f21bafbfb978d6de"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr &&
+make 
+make install
+
+xEOFx
+) > tmp

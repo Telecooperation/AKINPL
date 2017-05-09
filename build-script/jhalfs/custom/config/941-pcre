@@ -1,0 +1,30 @@
+#
+# $Id: 941-pcre 3855 2016-02-20 22:13:22Z pierre $
+#
+# edited by daniel on 2017-01-20
+#
+PKG="pcre"
+PKG_VERSION="8.39"
+PKG_FILE="pcre-8.39.tar.bz2"
+URL="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/${PKG_FILE}"
+MD5="e3fca7650a0556a2647821679d81f585"
+for i in PATCH{1..10}; do
+   unset $i
+done
+
+( cat << "xEOFx"
+./configure --prefix=/usr                     \
+            --docdir=/usr/share/doc/pcre-8.39 \
+            --enable-unicode-properties       \
+            --enable-pcre16                   \
+            --enable-pcre32                   \
+            --enable-pcregrep-libz            \
+            --enable-pcregrep-libbz2          \
+            --enable-pcretest-libreadline     \
+            --disable-static                 &&
+make
+make install                     &&
+mv -v /usr/lib/libpcre.so.* /lib &&
+ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so
+xEOFx
+) > tmp

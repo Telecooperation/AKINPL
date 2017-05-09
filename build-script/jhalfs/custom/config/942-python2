@@ -1,0 +1,27 @@
+#
+# $Id: 942-python2 8855 2017-01-16 12:19:20Z daniel $
+#
+PKG="python2"
+PKG_VERSION="2.7.13"
+PKG_FILE="Python-2.7.13.tar.xz"
+URL="https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
+MD5="53b43534153bb2a0363f08bae8b9d990"
+for i in PATCH{1..10}; do
+   unset $i
+done
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr       \
+            --enable-shared     \
+            --with-system-expat \
+            --with-system-ffi   \
+            --with-ensurepip=yes \
+            --enable-unicode=ucs4 &&
+make
+
+make install &&
+chmod -v 755 /usr/lib/libpython2.7.so.1.0
+
+xEOFx
+) > tmp

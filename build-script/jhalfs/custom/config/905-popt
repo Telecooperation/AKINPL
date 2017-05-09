@@ -1,0 +1,21 @@
+#
+# $Id: 905-popt 7569 2017-01-16 11:28:55Z daniel $
+#
+# popt
+#
+
+PKG="popt"
+PKG_VERSION="1.1.6"
+PKG_FILE="popt-1.16.tar.gz"
+URL="http://rpm5.org/files/popt/popt-1.16.tar.gz"
+MD5="3743beefa3dd6247a73f8f7a32c14c33"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --disable-static &&
+make
+
+make install
+
+xEOFx
+) > tmp

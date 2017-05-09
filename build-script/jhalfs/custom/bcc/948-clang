@@ -1,0 +1,18 @@
+#
+# $Id: 947-clang 7612 2017-01-21 10:01:09Z daniel $
+#
+# clang
+#
+
+PKG="clang"
+PKG_VERSION="3.9.0"
+PKG_FILE="cfe-3.9.0.src.tar.xz"
+URL="http://releases.llvm.org/3.9.0/cfe-3.9.0.src.tar.xz"
+MD5="29e1d86bee422ab5345f5e9fb808d2dc"
+
+
+( cat << "xEOFx"
+
+
+xEOFx
+) > tmp

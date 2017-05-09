@@ -1,0 +1,20 @@
+#
+# $Id: 915-unrar 7579 2017-01-20 10:15:40Z daniel $
+#
+# unrar allows users to extract rar archives
+#
+
+PKG="unrar"
+PKG_VERSION="5.4.5"
+PKG_FILE="unrarsrc-5.4.5.tar.gz"
+URL="http://www.rarlab.com/rar/unrarsrc-5.4.5.tar.gz"
+MD5="588b3fadc04eea7372cbfe98e4709aee"
+
+( cat << "xEOFx"
+
+make -f makefile
+
+install -v -m755 unrar /usr/bin
+
+xEOFx
+) > tmp

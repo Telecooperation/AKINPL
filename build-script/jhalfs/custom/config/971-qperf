@@ -1,0 +1,21 @@
+#
+# $Id: 971-qperf 3562 2017 09:27:02Z daniel $
+#
+# qperf ships tests for latency and throughput measurement
+#
+
+PKG="qperf"
+PKG_VERSION="0.4.9"
+PKG_FILE="qperf-0.4.9.tar.gz"
+URL="https://www.openfabrics.org/downloads/qperf/qperf-0.4.9.tar.gz"
+MD5="a9eea1953ee5379e57ae5fd7b09fecf2"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr
+make
+make install
+
+
+xEOFx
+) > tmp

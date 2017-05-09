@@ -1,0 +1,25 @@
+#
+# $Id: 929-wget 7593 2017-01-20 12:38:22Z daniel $
+#
+# wget allows for obtaining files from the web
+#
+
+PKG="wget"
+PKG_VERSION="1.18"
+PKG_FILE="wget-1.18.tar.xz"
+URL="http://ftp.gnu.org/gnu/wget/wget-1.18.tar.xz"
+MD5="af9ca95a4bb8ac4a9bf10aeae66fa5ec"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr      \
+            --sysconfdir=/etc  &&
+make
+
+
+
+make install
+
+xEOFx
+) > tmp

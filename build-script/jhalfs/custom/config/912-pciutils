@@ -1,0 +1,27 @@
+#
+# $Id: 912- 7576 2017-01-20 10:00:03Z daniel $
+#
+# pci utils allow for inspecting PCI devices
+#
+
+PKG="pciutils"
+PKG_VERSION="3.5.1"
+PKG_FILE="pciutils-3.5.1.tar.xz"
+URL="ftp://ftp.kernel.org/pub/software/utils/pciutils/pciutils-3.5.1.tar.xz"
+MD5="0879a8f7ac51f4e874cfc6b3521a13cc"
+
+( cat << "xEOFx"
+
+make PREFIX=/usr                \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes
+
+make PREFIX=/usr                \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes                 \
+     install install-lib        &&
+
+chmod -v 755 /usr/lib/libpci.so
+
+xEOFx
+) > tmp

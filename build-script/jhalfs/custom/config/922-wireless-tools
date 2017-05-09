@@ -1,0 +1,27 @@
+#
+# $Id: 922-wireless-tools 7586 2017-01-20 10:46:17Z daniel $
+#
+# wireless tools ships an API for configuring Wireless Extensions
+#
+
+PKG="wireless-tools"
+PKG_VERSION="29"
+PKG_FILE="wireless_tools.29.tar.gz"
+URL="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz"
+MD5="e06c222e186f7cc013fd272d023710cb"
+
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1="http://www.linuxfromscratch.org/patches/blfs/7.10/wireless_tools-29-fix_iwlist_scanning-1.patch 9db3a9451d8cb969e388e089be401408"
+
+( cat << "xEOFx"
+
+patch -Np1 -i ../wireless_tools-29-fix_iwlist_scanning-1.patch
+
+make
+
+make PREFIX=/usr INSTALL_MAN=/usr/share/man install
+
+xEOFx
+) > tmp

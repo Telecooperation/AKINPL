@@ -1,0 +1,25 @@
+#
+# $Id: 961-net-tools 3862 2017-02-16 19:21:33Z daniel $
+#
+# The net tools package ships various utilities for configuring the Linux kernel's network subsystem
+#
+PKG="net-tools"
+PKG_VERSION="CVS_20101030"
+PKG_FILE="net-tools-CVS_20101030.tar.gz"
+URL=" http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz"
+MD5="6be14ed473cacdd68edeaa9605adc469"
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1="http://www.linuxfromscratch.org/patches/blfs/7.10/net-tools-CVS_20101030-remove_dups-1.patch 01b01721458ee16bef6eb9464a0da175"
+
+( cat << "xEOFx"
+
+patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &&
+yes "" | make config &&
+make
+
+make update
+
+xEOFx
+) > tmp

@@ -1,0 +1,16 @@
+#
+# $Id: 967-rename-mptcp-kernel-src 10409 2017-03-08 08:03:15Z daniel $
+#
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cd /sources
+mv mptcp-kernel-src mptcp-kernel
+
+xEOFx
+) > tmp

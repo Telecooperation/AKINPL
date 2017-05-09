@@ -1,0 +1,29 @@
+#
+# $Id: 986-bcc 3576 2017-01-21 10:15:24Z daniel $
+#
+# BCC is a tracing tools collection based on the berkeley packet filter
+#
+
+PKG=""
+PKG_VERSION="0.2.0"
+PKG_FILE="v0.2.0.zip"
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cd /sources
+unzip v0.2.0.zip
+cd bcc-0.2.0
+
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+make install
+
+cd ../..
+rm -r bcc-0.2.0
+
+xEOFx
+) > tmp

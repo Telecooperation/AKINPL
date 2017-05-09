@@ -1,0 +1,15 @@
+#
+# $Id: 899-zip-archives 9797 2017-01-21 22:13:22Z daniel $
+#
+PKG="zip-archives"
+PKG_VERSION="0.4"
+PKG_FILE="zip-archives-0.4.tar.xz"
+URL="https://www.dropbox.com/s/2bur3m4s6qb25d0/zip-archives-0.4.tar.xz"
+MD5="260a27ab1259bfb9040edf6c3b17fa51"
+
+( cat << "xEOFx"
+
+mv * /sources
+
+xEOFx
+) > tmp

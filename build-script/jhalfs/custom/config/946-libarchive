@@ -1,0 +1,25 @@
+#
+# $Id: 946-libarchive 7642 2017-01-20 14:32:49Z daniel $
+#
+# libarchive required by cmake
+#
+
+PKG="libarchive"
+PKG_VERSION="3.2.1 "
+PKG_FILE="libarchive-3.2.1.tar.gz"
+URL="http://www.libarchive.org/downloads/libarchive-3.2.1.tar.gz"
+MD5="afa257047d1941a565216edbf0171e72"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --disable-static &&
+
+make
+
+
+
+make install
+
+xEOFx
+) > tmp

@@ -1,0 +1,31 @@
+#
+# $Id: 932-bash-completion 7596 2017-01-20 12:52:37Z daniel $
+#
+# bash completion completes partly written instructions
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+
+( cat << "xEOFx"
+
+cd /sources
+unzip 2.4.zip
+cd bash-completion-2.4
+
+
+autoreconf -i
+./configure --prefix=/usr
+make 
+
+make install
+
+cd ..
+rm -r bash-completion-2.4
+
+xEOFx
+) > tmp

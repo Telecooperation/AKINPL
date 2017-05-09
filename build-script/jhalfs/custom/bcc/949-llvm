@@ -1,0 +1,27 @@
+#
+# $Id: 948-llvm 7612 2017-01-21 10:06:59Z daniel $
+#
+# low level virtual machine
+#
+
+PKG="llvm"
+PKG_VERSION="3.9.0"
+PKG_FILE="llvm-3.9.0.src.tar.xz"
+URL="http://releases.llvm.org/3.9.0/llvm-3.9.0.src.tar.xz"
+MD5="f2093e98060532449eb7d2fcfd0bc6c6"
+
+
+( cat << "xEOFx"
+
+cd tools
+tar xf ../../cfe-3.9.0.src.tar.xz
+cd ..
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make 
+
+make install
+
+xEOFx
+) > tmp

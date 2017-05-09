@@ -1,0 +1,22 @@
+#
+# $Id: 972-thrulay-ng 3563 2017 09:38:55Z daniel $
+#
+# thrulay-ng allows for measuring TCP throughput and latency
+# as well as sending fine grained poisson streams with UDP
+#
+
+PKG="thrulay"
+PKG_VERSION="0.6.2"
+PKG_FILE="thrulay-ng-0.6.2.tar.gz"
+URL="https://downloads.sourceforge.net/project/thrulay-ng/thrulay-ng/0.6.2/thrulay-ng-0.6.2.tar.gz"
+MD5="dca1c4863b5684225b54e4848e00208b"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr
+make
+make install
+
+
+xEOFx
+) > tmp

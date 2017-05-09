@@ -1,0 +1,20 @@
+#
+# $Id: 910-htop 7574 2017-01-16 18:53:28Z daniel $
+#
+# htop for monitoring processes
+#
+
+PKG="htop"
+PKG_VERSION="2.0.2"
+PKG_FILE="htop-2.0.2.tar.gz"
+URL="hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
+MD5="7d354d904bad591a931ad57e99fea84a"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-taskstats &&
+make 
+make install
+
+xEOFx
+) > tmp

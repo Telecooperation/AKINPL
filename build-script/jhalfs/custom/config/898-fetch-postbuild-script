@@ -1,0 +1,17 @@
+#
+# $Id: 898-fetch-postbuild-script 9097 2017-01-21 22:13:22Z daniel $
+#
+# postbuild script installs packages which cannot be installed with jhalfs 
+#
+PKG="postbuildscript"
+PKG_VERSION="0.8"
+PKG_FILE="post-build-script-0.8.tar.gz"
+URL="https://www.dropbox.com/s/lv9izc80znvl7af/post-build-script-0.8.tar.gz"
+MD5="fc090ee6515c71d15636e677da1be57c"
+
+( cat << "xEOFx"
+
+cp * /sources
+
+xEOFx
+) > tmp

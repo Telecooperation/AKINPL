@@ -1,0 +1,21 @@
+#
+# $Id: 913-unzip 7577 2017-01-20 10:05:1Z daniel $
+#
+# unzip enables users to extract zip archives
+#
+
+PKG="unzip"
+PKG_VERSION="60"
+PKG_FILE="unzip60.tar.gz"
+URL="http://downloads.sourceforge.net/infozip/unzip60.tar.gz"
+MD5="62b490407489521db863b523a7f86375"
+
+( cat << "xEOFx"
+
+make -f unix/Makefile generic
+
+make prefix=/usr MANDIR=/usr/share/man/man1 \
+ -f unix/Makefile install
+
+xEOFx
+) > tmp

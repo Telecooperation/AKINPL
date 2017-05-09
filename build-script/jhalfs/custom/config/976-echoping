@@ -1,0 +1,20 @@
+#
+# $Id: 901-libidn 7565 2017-01-16 10:14:59Z daniel $
+#
+# echoping allows for measuring minimal latency
+#
+
+PKG="echoping"
+PKG_VERSION="6.0.2"
+PKG_FILE="echoping-6.0.2.tar.gz"
+URL="ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/echoping-6.0.2.tar.gz"
+MD5="991478532b56ab3b6f46ea9fa332626f"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-http --enable-icp --enable-priority --enable-smtp --enable-tcp-info
+make
+make install
+
+xEOFx
+) > tmp

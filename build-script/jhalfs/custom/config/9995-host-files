@@ -1,0 +1,29 @@
+#
+# $Id: 9995-host files 9102 2017-01-18 10:16:59Z daniel $
+#
+# The host files for AKINPL
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cat > /etc/hosts << "EOF"
+# Begin /etc/hosts
+#IPv4 and IPv6 localhost aliases
+127.0.0.1      localhost AKINPL AKINPL
+::1	       localhost AKINPL
+# End /etc/hosts
+EOF
+
+cat > /etc/hostname << "EOF"
+AKINPL
+EOF
+
+
+xEOFx
+) > tmp

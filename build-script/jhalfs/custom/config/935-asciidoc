@@ -1,0 +1,25 @@
+#
+# $Id: 935-asciidoc 7599 2017-01-20 13:51:38Z daniel $
+#
+# asciidoc is used for building manpages and documentations
+#
+
+PKG="asciidoc"
+PKG_VERSION="8.6.9"
+PKG_FILE="asciidoc-8.6.9.tar.gz"
+URL="http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.9/asciidoc-8.6.9.tar.gz"
+MD5="c59018f105be8d022714b826b0be130a"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/asciidoc-8.6.9 &&
+make
+
+make install &&
+make docs
+
+xEOFx
+) > tmp

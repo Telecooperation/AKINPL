@@ -1,0 +1,20 @@
+#
+# $Id: 976-fping 3566 2017 09:54:48Z daniel $
+#
+# Fping enables users to check the availability of multiple hosts
+#
+
+PKG="fping"
+PKG_VERSION="3.13"
+PKG_FILE="fping-3.13.tar.gz"
+URL="http://fping.org/dist/fping-3.13.tar.gz"
+MD5="a39134baca6bc6ced56191cb51fb0dc2"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-ipv4 --enable-ipv6
+make
+make install
+
+xEOFx
+) > tmp

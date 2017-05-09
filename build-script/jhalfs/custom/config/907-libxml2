@@ -1,0 +1,22 @@
+#
+# $Id: 907-libxml2 7571 2017-01-16 11:41:31Z daniel $
+#
+# libxml2
+#
+
+PKG="libxml2"
+PKG_VERSION="2.9.4"
+PKG_FILE="libxml2-2.9.4.tar.gz"
+URL="http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
+MD5="ae249165c173b1ff386ee8ad676815f5"
+
+( cat << "xEOFx"
+
+sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
+./configure --prefix=/usr --disable-static --with-history &&
+make
+
+make install
+
+xEOFx
+) > tmp

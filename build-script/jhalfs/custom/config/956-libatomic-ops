@@ -1,0 +1,29 @@
+#
+# $Id: 956-libatomic-ops 3858 2017-01-23 08:25:44Z daniel $
+#
+# libatomic_ops is a library for atomic memory update operations
+#
+PKG="libatomic-ops"
+PKG_VERSION="7.4.4"
+PKG_FILE="libatomic_ops-7.4.4.tar.gz"
+URL="http://www.ivmaisoft.com/_bin/atomic_ops/libatomic_ops-7.4.4.tar.gz"
+MD5="426d804baae12c372967a6d183e25af2"
+
+( cat << "xEOFx"
+
+sed -i 's#pkgdata#doc#' doc/Makefile.am &&
+autoreconf -fi &&
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --disable-static \
+            --docdir=/usr/share/doc/libatomic_ops-7.4.4 &&
+make
+
+
+make install &&
+mv -v   /usr/share/libatomic_ops/* \
+        /usr/share/doc/libatomic_ops-7.4.4 &&
+rm -vrf /usr/share/libatomic_ops
+
+xEOFx
+) > tmp

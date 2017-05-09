@@ -1,0 +1,33 @@
+#
+# $Id: 934-curl 7598 2017-01-20 13:28:31Z daniel $
+#
+# curl inculdes a utility as well as a library for transmitting files with URL syntax to various protocols.
+#
+
+PKG="curl"
+PKG_VERSION="7.50.1"
+PKG_FILE="curl-7.50.1.tar.lzma"
+URL="https://curl.haxx.se/download/curl-7.50.1.tar.lzma"
+MD5="01ac668b9f78266d72bdb86aa9db0849"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr              \
+            --disable-static           \
+            --enable-threaded-resolver &&
+make
+
+make install &&
+
+rm -rf docs/examples/.deps &&
+
+find docs \( -name Makefile\* \
+          -o -name \*.1       \
+          -o -name \*.3 \)    \
+          -exec rm {} \;      &&
+install -v -d -m755 /usr/share/doc/curl-7.50.1 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.50.1
+
+xEOFx
+) > tmp

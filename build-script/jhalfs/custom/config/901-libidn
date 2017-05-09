@@ -1,0 +1,26 @@
+#
+# $Id: 901-libidn 7565 2017-01-16 10:14:59Z daniel $
+#
+# echoping requires libidn
+#
+
+PKG="libidn"
+PKG_VERSION="1.33"
+PKG_FILE="libidn-1.33.tar.gz"
+URL="http://ftp.gnu.org/gnu/libidn/libidn-1.33.tar.gz"
+MD5="a9aa7e003665de9c82bd3f9fc6ccf308"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --disable-static &&
+make
+
+make install &&
+
+find doc -name "Makefile*" -delete            &&
+rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi} &&
+mkdir -v       /usr/share/doc/libidn-1.33     &&
+cp -r -v doc/* /usr/share/doc/libidn-1.33
+
+xEOFx
+) > tmp

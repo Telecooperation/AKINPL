@@ -1,0 +1,15 @@
+#
+# $Id: 897-kernel-configs 9097 2017-01-21 22:13:22Z daniel $
+#
+PKG="configs"
+PKG_VERSION="0.2"
+PKG_FILE="configs-0.2.tar.gz"
+URL="https://www.dropbox.com/s/6vi1d6tmwy2aczg/configs-0.2.tar.gz"
+MD5="f79e3803478b26b8f7830cee4c0a1aca"
+
+( cat << "xEOFx"
+
+mv * /sources
+
+xEOFx
+) > tmp

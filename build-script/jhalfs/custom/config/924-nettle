@@ -1,0 +1,24 @@
+#
+# $Id: 924-nettle 7589 2017-01-20 11:44:16Z daniel $
+#
+# nettle is lighweight cryptographic library
+#
+
+PKG="nettle"
+PKG_VERSION="3.2"
+PKG_FILE="nettle-3.2.tar.gz"
+URL="https://ftp.gnu.org/gnu/nettle/nettle-3.2.tar.gz"
+MD5="afb15b4764ebf1b4e6d06c62bd4d29e4"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --disable-static &&
+make
+
+make install &&
+chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
+install -v -m755 -d /usr/share/doc/nettle-3.2 &&
+install -v -m644 nettle.html /usr/share/doc/nettle-3.2
+
+xEOFx
+) > tmp

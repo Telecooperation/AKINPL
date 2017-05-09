@@ -1,0 +1,29 @@
+#
+# $Id: 950-sudo 7583 2017-01-22 10:25:50Z daniel $
+#
+# sudo allows for permission granting
+#
+
+PKG="sudo"
+PKG_VERSION="1.8.17p1"
+PKG_FILE="sudo-1.8.17p1.tar.gz"
+URL="http://www.sudo.ws/dist/sudo-1.8.17p1.tar.gz"
+MD5="50a840a688ceb6fa3ab24fc0adf4fa23"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr              \
+            --libexecdir=/usr/lib      \
+            --with-secure-path         \
+            --with-all-insults         \
+            --with-env-editor          \
+            --docdir=/usr/share/doc/sudo-1.8.17p1 \
+            --with-passprompt="[sudo] password for %p" &&
+make
+
+
+make install &&
+ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
+
+xEOFx
+) > tmp

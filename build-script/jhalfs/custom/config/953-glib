@@ -1,0 +1,18 @@
+#
+# $Id: 953-glib 3855 2016-02-20 22:13:22Z pierre $
+#
+PKG="glib"
+PKG_VERSION="2.48.2"
+PKG_FILE="glib-2.48.2.tar.xz"
+URL="http://ftp.gnome.org/pub/gnome/sources/glib/2.48/glib-2.48.2.tar.xz"
+MD5="f4ac1aa2efd4f5798c37625ea697ac57"
+for i in PATCH{1..10}; do
+   unset $i
+done
+
+( cat << "xEOFx"
+./configure --prefix=/usr --with-pcre=system &&
+make
+make install
+xEOFx
+) > tmp

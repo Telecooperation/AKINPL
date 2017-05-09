@@ -1,0 +1,22 @@
+#
+# $Id: 939-libxsl 7602 2017-01-20 14:11:17Z daniel $
+#
+# libxslt extends the libxml2 library in order to support XSLT files
+#
+
+PKG="libxslt"
+PKG_VERSION="1.1.29"
+PKG_FILE="libxslt-1.1.29.tar.gz"
+URL="http://xmlsoft.org/sources/libxslt-1.1.29.tar.gz"
+MD5="a129d3c44c022de3b9dcf6d6f288d72e"
+
+( cat << "xEOFx"
+
+sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
+./configure --prefix=/usr --disable-static &&
+make
+
+make install
+
+xEOFx
+) > tmp

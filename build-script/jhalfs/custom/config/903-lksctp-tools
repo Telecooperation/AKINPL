@@ -1,0 +1,21 @@
+#
+# $Id: 903-lksctp-tools 7567 2017-01-16 10:54:07Z daniel $
+#
+# lksctp-tools
+#
+
+PKG="lksctp-tools"
+PKG_VERSION="1.0.16"
+PKG_FILE="lksctp-tools-1.0.16.tar.gz"
+URL="https://downloads.sourceforge.net/project/lksctp/lksctp-tools/lksctp-tools-1.0.16.tar.gz"
+MD5="708bb0b5a6806ad6e8d13c55b067518e"
+
+( cat << "xEOFx"
+
+./bootstrap &&
+./configure --prefix=/usr
+make
+make install
+
+xEOFx
+) > tmp

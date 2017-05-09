@@ -1,0 +1,24 @@
+#
+# $Id: 926-libtasn1 7591 2017-01-20 11:55:36Z daniel $
+#
+# libtasn1 is a library for encoding as well as decoding DER/BER data according to an ASN.1 schema
+#
+
+PKG="libtasn1"
+PKG_VERSION="4.9"
+PKG_FILE="libtasn1-4.9.tar.gz"
+URL="http://ftp.gnu.org/gnu/libtasn1/libtasn1-4.9.tar.gz"
+MD5="3018d0f466a32b66dde41bb122e6cab6"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --disable-static &&
+make
+
+make install
+
+make -C doc/reference install-data-local
+
+xEOFx
+) > tmp

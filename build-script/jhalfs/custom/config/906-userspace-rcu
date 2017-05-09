@@ -1,0 +1,20 @@
+#
+# $Id: 906-userspace-rcu 7570 2017-01-16 11:36:59Z daniel $
+#
+# User-space RCU
+#
+
+PKG="userspace-rcu"
+PKG_VERSION="0.9"
+PKG_FILE="userspace-rcu-latest-0.9.tar.bz2"
+URL="www.lttng.org/files/urcu/userspace-rcu-latest-0.9.tar.bz2"
+MD5="920970e35a1a2066c8353eabfeab8730"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr
+make
+make install && ldconfig
+
+xEOFx
+) > tmp

@@ -1,0 +1,65 @@
+#
+# $Id: 9993-network-interface-rules 9102 2017-01-18 10:16:59Z daniel $
+#
+# Network interface rules for ethernet
+#
+
+PKG="bootscripts"
+PKG_VERSION="20190902"
+PKG_FILE="blfs-bootscripts-20160902.tar.xz"
+URL="http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20160902.tar.xz"
+MD5="5629f43e994d6b3e7b347893a232a867"
+
+( cat << "xEOFx"
+
+# check if systemd is installed
+if [ -d /etc/systemd/network ]; then
+
+cd /etc/systemd/network
+
+cat > /etc/systemd/network/10-en-dhcp.network << "EOF"
+[Match]
+Name=en*
+[Network]
+DHCP=ipv4
+[DHCP]
+UseDomains=true
+
+EOF
+
+cat > /etc/systemd/network/10-eth-dhcp.network << "EOF"
+[Match]
+Name=eth*
+[Network]
+DHCP=ipv4
+[DHCP]
+UseDomains=true
+
+EOF
+
+cat > /etc/systemd/network/25-wl-dhcp.network << "EOF"
+[Match]
+Name=wl*
+[Network]
+DHCP=ipv4
+[DHCP]
+UseDomains=true
+
+EOF
+
+else
+
+make install-service-dhcpcd
+
+cat > /etc/sysconfig/ifconfig.eth0 << "EOF"
+ONBOOT="yes"
+IFACE="eth0"
+SERVICE="dhcpcd"
+DHCP_START="-b -q"
+DHCP_STOP="-k"
+EOF
+
+fi
+
+xEOFx
+) > tmp

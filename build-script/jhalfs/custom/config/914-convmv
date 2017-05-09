@@ -1,0 +1,22 @@
+#
+# $Id: 914-convmv 7577 2017-01-20 10:12:59Z daniel $
+#
+# convmv assists when zip archives contain non-ASCII filenames and are unzipped with the unzip command
+#
+
+PKG="unzip"
+PKG_VERSION="2.0"
+PKG_FILE="convmv-2.0.tar.gz"
+URL="https://j3e.de/linux/convmv/convmv-2.0.tar.gz"
+MD5="984a13dd5068c0c67356b87e4078d66e"
+
+( cat << "xEOFx"
+
+make
+
+make install &&
+mv /usr/local/bin/convmv /usr/bin &&
+mv /usr/local/share/man/man1/convmv.1.gz /usr/share/man/man1
+
+xEOFx
+) > tmp

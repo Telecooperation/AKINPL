@@ -1,0 +1,22 @@
+#
+# $Id: 944-git 7609 2017-01-20 14:32:49Z daniel $
+#
+# git is version control system
+#
+
+PKG="git"
+PKG_VERSION="2.9.3"
+PKG_FILE="git-2.9.3.tar.xz"
+URL="https://www.kernel.org/pub/software/scm/git/git-2.9.3.tar.xz"
+MD5="3d32cb5cb5b4f29bd2eb1cde596fc542"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --with-gitconfig=/etc/gitconfig &&
+make
+
+make install
+
+xEOFx
+) > tmp

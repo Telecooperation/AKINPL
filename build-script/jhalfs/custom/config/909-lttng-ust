@@ -1,0 +1,20 @@
+#
+# $Id: 909-lttng-ust 7573 2017-01-16 11:55:28Z daniel $
+#
+# lttng ust
+#
+
+PKG="lttng-ust"
+PKG_VERSION="2.8"
+PKG_FILE="lttng-ust-latest-2.8.tar.bz2"
+URL="http://lttng.org/files/lttng-ust/lttng-ust-latest-2.8.tar.bz2"
+MD5="be505077245dc05f93370a565eec15f4"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr &&
+make 
+make install && ldconfig
+
+xEOFx
+) > tmp

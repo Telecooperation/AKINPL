@@ -1,0 +1,24 @@
+#
+# $Id: 981-systemtap 3570 2017-01-16 13:21:26Z daniel $
+#
+# systemtap is a tracing tool using a scripting language
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+#git clone git://sourceware.org/git/systemtap.git
+#cd systemtap
+
+#./configure --prefix=/usr
+#make
+#make install
+#stap -r 4.7.2
+
+xEOFx
+) > tmp

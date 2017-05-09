@@ -1,0 +1,23 @@
+#
+# $Id: 940-xmlto 7603 2017-01-20 14:06:13Z daniel $
+#
+# xmlto provides a XSL-T processor for post processing.
+#
+
+PKG="xmlto"
+PKG_VERSION="0.0.28"
+PKG_FILE="xmlto-0.0.28.tar.bz2"
+URL="https://fedorahosted.org/releases/x/m/xmlto/xmlto-0.0.28.tar.bz2"
+MD5="93bab48d446c826399d130d959fe676f"
+
+( cat << "xEOFx"
+
+LINKS="/usr/bin/links" \
+./configure --prefix=/usr &&
+
+make
+
+make install
+
+xEOFx
+) > tmp

@@ -1,0 +1,20 @@
+#
+# $Id: 984-uperf 3573 2017-01-16 15:14:20Z daniel $
+#
+# uperf is a latency and throughput measurement tool
+#
+
+PKG="uperf"
+PKG_VERSION="1.0.5"
+PKG_FILE="uperf-1.0.5.tar.gz"
+URL="https://sourceforge.net/projects/uperf/files/uperf/uperf-1.0.5.tar.gz"
+MD5="95ee2a915babf79c183d2a72543e4d31"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-udp --enable-ssl --enable-sctp
+make
+make install
+
+xEOFx
+) > tmp

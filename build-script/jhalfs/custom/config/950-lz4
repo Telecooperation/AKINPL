@@ -1,0 +1,27 @@
+#
+# $Id: 949-lz4 7582 2017-01-20 10:25:50Z daniel $
+#
+# plz4 provides fast decompression
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cd /sources
+unzip v1.7.4.zip
+cd lz4-1.7.4
+
+make
+
+make install PREFIX=/usr
+
+cd ..
+rm -r lz4-1.7.4
+
+xEOFx
+) > tmp

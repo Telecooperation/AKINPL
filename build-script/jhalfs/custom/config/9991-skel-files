@@ -1,0 +1,80 @@
+#
+# $Id: 1000-skel-files 9101 2017-01-18 20:07:09Z daniel $
+#
+# Files which reside in /etc/skel in AKINPL
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+mkdir /etc/skel
+
+cat > /etc/skel/.bash_logout << "EOF"
+# Begin ~/.bash_logout
+# Written for Beyond Linux From Scratch
+# by James Robertson <jameswrobertson@earthlink.net>
+
+# Personal items to perform on logout.
+
+# End ~/.bash_logout
+clear
+EOF
+
+cat > /etc/skel/.bash_profile << "EOF"
+# Begin ~/.bash_profile
+# Written for Beyond Linux From Scratch
+# by James Robertson <jameswrobertson@earthlink.net>
+# updated by Bruce Dubbs <bdubbs@linuxfromscratch.org>
+
+# Personal environment variables and startup programs.
+
+# Personal aliases and functions should go in ~/.bashrc.  System wide
+# environment variables and startup programs are in /etc/profile.
+# System wide aliases and functions are in /etc/bashrc.
+
+if [ -f "$HOME/.bashrc" ] ; then
+  source $HOME/.bashrc
+fi
+
+if [ -d "$HOME/bin" ] ; then
+  pathprepend $HOME/bin
+fi
+
+# Having . in the PATH is dangerous
+#if [ $EUID -gt 99 ]; then
+#  pathappend .
+#fi
+
+# End ~/.bash_profile
+EOF
+
+cat > /etc/skel/.bash_history << "EOF"
+
+EOF
+
+cat > /etc/skel/.bashrc << "EOF"
+# Begin ~/.bashrc
+# Written for Beyond Linux From Scratch
+# by James Robertson <jameswrobertson@earthlink.net>
+
+# Personal aliases and functions.
+
+# Personal environment variables and startup programs should go in
+# ~/.bash_profile.  System wide environment variables and startup
+# programs are in /etc/profile.  System wide aliases and functions are
+# in /etc/bashrc.
+
+if [ -f "/etc/bashrc" ] ; then
+  source /etc/bashrc
+fi
+
+# End ~/.bashrc
+EOF
+
+xEOFx
+) > tmp

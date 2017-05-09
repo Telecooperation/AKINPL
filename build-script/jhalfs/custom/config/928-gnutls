@@ -1,0 +1,27 @@
+#
+# $Id: 928-gnutls 7592 2017-01-20 11:58:32Z daniel $
+#
+# lp11-kit ships a way for handeling PKCS#11 modules.
+#
+
+PKG="gnutls"
+PKG_VERSION="3.5.3"
+PKG_FILE="gnutls-3.5.3.tar.xz"
+URL="ftp://ftp.gnutls.org/gcrypt/gnutls/v3.5/gnutls-3.5.3.tar.xz"
+MD5="6c2c7f40ddf52933ee3ca474cb8cb63c"
+
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr \
+            --with-default-trust-store-file=/etc/ssl/ca-bundle.crt &&
+make
+
+
+
+make install
+
+make -C doc/reference install-data-local
+
+xEOFx
+) > tmp

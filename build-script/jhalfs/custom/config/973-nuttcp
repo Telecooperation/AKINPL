@@ -1,0 +1,19 @@
+#
+# $Id: 973-nuttcp 3564 2017 09:44:05Z daniel $
+#
+# nuttcp is a throughput measurement tool
+#
+
+PKG="nuttcp"
+PKG_VERSION="8.1.4"
+PKG_FILE="nuttcp-8.1.4.tar.bz2"
+URL="nuttcp.net/nuttcp/nuttcp-8.1.4.tar.bz2"
+MD5="cdf2d74a5ffc1f1f1cdc5b5890f30066"
+
+( cat << "xEOFx"
+
+make
+mv nuttcp-8.1.4 /usr/bin/nuttcp
+
+xEOFx
+) > tmp

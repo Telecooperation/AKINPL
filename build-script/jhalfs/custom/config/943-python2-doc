@@ -1,0 +1,26 @@
+#
+# $Id: 943-python2-doc 8856 2017-01-16 12:22:55Z daniel $
+#
+PKG="python2-doc"
+PKG_VERSION="2.7.13"
+PKG_FILE="python-2.7.13-docs-html.tar.bz2"
+URL="https://docs.python.org/2.7/archives/python-2.7.13-docs-html.tar.bz2"
+MD5="6720b9e31b111b7b76b9920a5688bab5"
+for i in PATCH{1..10}; do
+   unset $i
+done
+
+( cat << "xEOFx"
+
+install -v -dm755 /usr/share/doc/python-2.7.13 &&
+
+tar --strip-components=1                     \
+    --no-same-owner                          \
+    --directory /usr/share/doc/python-2.7.13 \
+    -xvf ../python-2.7.13-docs-html.tar.bz2 &&
+
+find /usr/share/doc/python-2.7.13 -type d -exec chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.13 -type f -exec chmod 0644 {} \;
+
+xEOFx
+) > tmp

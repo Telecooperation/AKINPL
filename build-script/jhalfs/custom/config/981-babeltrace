@@ -1,0 +1,20 @@
+#
+# $Id: 980-babeltrace 3570 2017-01-16 13:21:26Z daniel $
+#
+# Babeltrace allows for viewing lttng traces
+#
+
+PKG="babeltrace"
+PKG_VERSION="1.4.0"
+PKG_FILE="babeltrace-1.4.0.tar.bz2"
+URL="www.efficios.com/files/babeltrace/babeltrace-1.4.0.tar.bz2"
+MD5="fa99064048af5c9c6ff00e489ac809c2"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-python-bindings &&
+make
+make install
+
+xEOFx
+) > tmp

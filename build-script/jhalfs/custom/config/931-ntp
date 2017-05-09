@@ -1,0 +1,63 @@
+#
+# $Id: 930-ntp 7595 2017-01-20 12:46:14Z daniel $
+#
+# ntp allows for clock synchronization
+#
+
+PKG="ntp"
+PKG_VERSION="4.2.8p8"
+PKG_FILE="ntp-4.2.8p8.tar.gz"
+URL="https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p8.tar.gz"
+MD5="4a8636260435b230636f053ffd070e34"
+
+
+( cat << "xEOFx"
+
+groupadd -g 87 ntp &&
+useradd -c "Network Time Protocol" -d /var/lib/ntp -u 87 \
+        -g ntp -s /bin/false ntp
+
+./configure --prefix=/usr         \
+            --bindir=/usr/sbin    \
+            --sysconfdir=/etc     \
+            --enable-linuxcaps    \
+            --with-lineeditlibs=readline \
+            --docdir=/usr/share/doc/ntp-4.2.8p8 &&
+make
+
+make install &&
+install -v -o ntp -g ntp -d /var/lib/ntp
+
+cat > /etc/ntp.conf << "EOF"
+# Asia
+server 0.asia.pool.ntp.org
+
+# Australia
+server 0.oceania.pool.ntp.org
+
+# Europe
+server 0.europe.pool.ntp.org
+
+# North America
+server 0.north-america.pool.ntp.org
+
+# South America
+server 2.south-america.pool.ntp.org
+
+driftfile /var/lib/ntp/ntp.drift
+pidfile   /var/run/ntpd.pid
+
+leapfile  /etc/ntp.leapseconds
+EOF
+
+cat >> /etc/ntp.conf << "EOF"
+# Security session
+restrict    default limited kod nomodify notrap nopeer noquery
+restrict -6 default limited kod nomodify notrap nopeer noquery
+
+restrict 127.0.0.1
+restrict ::1
+EOF
+
+xEOFx
+) > tmp

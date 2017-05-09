@@ -1,0 +1,19 @@
+#
+# $Id: 938-docbook-xsl-doc 7601 2017-01-20 14:00:38Z daniel $
+#
+# docbook-xsl documentation
+#
+
+PKG="docbook-xsl-doc"
+PKG_VERSION="1.79.1"
+PKG_FILE="docbook-xsl-doc-1.79.1.tar.bz2"
+URL="http://downloads.sourceforge.net/docbook/docbook-xsl-doc-1.79.1.tar.bz2"
+MD5="7eb51958e1bf97f3c5b013c42eb61e31"
+
+
+( cat << "xEOFx"
+
+# Treated by docbook xsl
+
+xEOFx
+) > tmp

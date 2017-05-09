@@ -1,0 +1,27 @@
+#
+# $Id: 974-ntttcp 3564 2017 09:44:05Z daniel $
+#
+# nuttcp is a throughput measurement tool
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cd /sources
+
+unzip master.zip
+cd ntttcp-for-linux-master/src
+
+make
+make install
+
+cd ../..
+rm -r ntttcp-for-linux-master
+
+xEOFx
+) > tmp

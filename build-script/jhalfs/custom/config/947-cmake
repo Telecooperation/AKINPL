@@ -1,0 +1,28 @@
+#
+# $Id: 946-cmake 7611 2017-01-21 09:47:09Z daniel $
+#
+# cmake generates makefiles
+#
+
+PKG="cmake"
+PKG_VERSION="3.6.1"
+PKG_FILE="cmake-3.6.1.tar.gz"
+URL="http://www.cmake.org/files/v3.6/cmake-3.6.1.tar.gz"
+MD5="d6dd661380adacdb12f41b926ec99545"
+
+
+( cat << "xEOFx"
+
+./bootstrap --prefix=/usr       \
+            --system-libs       \
+            --mandir=/share/man \
+            --no-system-jsoncpp \
+            --docdir=/share/doc/cmake-3.6.1 &&
+make
+
+
+make install
+
+
+xEOFx
+) > tmp

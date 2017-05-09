@@ -1,0 +1,20 @@
+#
+# $Id: 988-netperfmeter 3578 2017-01-21 10:48:51Z daniel $
+#
+# netperfmeter is a throughput and latency measurement tool
+#
+
+PKG="netperfmeter"
+PKG_VERSION="1.6.1"
+PKG_FILE="netperfmeter-1.6.1.tar.gz"
+URL="https://www.uni-due.de/~be0001/netperfmeter/download/netperfmeter-1.6.1.tar.gz"
+MD5="884ee931a0a5fe989665ee713c0e2804"
+
+( cat << "xEOFx"
+
+./configure --prefix=/usr --enable-test-programs --enable-plotting-programs
+make
+make install
+
+xEOFx
+) > tmp

@@ -1,0 +1,20 @@
+#
+# $Id: 919-libnl-doc 7585 2017-01-20 10:46:17Z daniel $
+#
+# documentation for libnl
+#
+
+PKG="libnl-doc"
+PKG_VERSION="3.2.28"
+PKG_FILE="libnl-doc-3.2.28.tar.gz"
+URL="https://github.com/thom311/libnl/releases/download/libnl3_2_28/libnl-doc-3.2.28.tar.gz"
+MD5="403799b1aa950e51db957033adc8f30d"
+
+( cat << "xEOFx"
+
+mkdir -vp /usr/share/doc/libnl-3.2.28 &&
+tar -xf ../libnl-doc-3.2.28.tar.gz --strip-components=1 --no-same-owner \
+    -C  /usr/share/doc/libnl-3.2.28
+
+xEOFx
+) > tmp

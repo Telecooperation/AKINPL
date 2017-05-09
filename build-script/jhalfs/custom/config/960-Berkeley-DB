@@ -1,0 +1,35 @@
+#
+# $Id: 960-Berkeley-DB 3861 2017-02-16 19:11:50Z daniel $
+#
+# Berkeley DB ships a variety of utilities used by applications
+#
+PKG="db"
+PKG_VERSION="6.2.23"
+PKG_FILE="db-6.2.23.tar.gz"
+URL="http://download.oracle.com/berkeley-db/db-6.2.23.tar.gz"
+MD5="9da126afb937a48171ff1e569ce67cf1"
+for i in PATCH{1..10}; do
+   unset $i
+done
+PATCH1=""
+
+( cat << "xEOFx"
+
+cd build_unix                        &&
+../dist/configure --prefix=/usr      \
+                  --enable-compat185 \
+                  --enable-dbm       \
+                  --disable-static   \
+                  --enable-cxx       &&
+make
+
+make docdir=/usr/share/doc/db-6.2.23 install &&
+
+chown -v -R root:root                        \
+      /usr/bin/db_*                          \
+      /usr/include/db{,_185,_cxx}.h          \
+      /usr/lib/libdb*.{so,la}                \
+      /usr/share/doc/db-6.2.23
+
+xEOFx
+) > tmp

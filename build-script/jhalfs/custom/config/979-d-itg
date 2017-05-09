@@ -1,0 +1,31 @@
+#
+# $Id: 978-ditg 3569 2017-01-16 14:21:47Z daniel $
+#
+# d-itg is packet generator
+#
+
+PKG=""
+PKG_VERSION=""
+PKG_FILE=""
+URL=""
+MD5=""
+
+( cat << "xEOFx"
+
+cd /sources
+unzip D-ITG-2.8.1-r1023-src.zip
+cd D-ITG-2.8.1-r1023
+
+
+cd src
+make dccp=on sctp=on
+
+make install
+
+mv ../bin/* /usr/bin
+
+cd ../..
+rm -r D-ITG-2.8.1-r1023
+
+xEOFx
+) > tmp
